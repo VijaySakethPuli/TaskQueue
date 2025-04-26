@@ -35,6 +35,7 @@ const PORT = process.env.PORT || 5000;
 
 async function startServer() {
     try {
+        console.log('MongoDB URI:', config.mongoURI);
         await mongoose.connect(config.mongoURI);
         console.log('Connected to MongoDB');
         
