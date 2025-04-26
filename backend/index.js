@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+dotenv.config();
 const helmet = require('helmet');
 const morgan = require('morgan');
 const config = require('./config/config');
 
 // Load environment variables
-dotenv.config();
+
 
 const app = express();
 
@@ -35,7 +36,6 @@ const PORT = process.env.PORT || 5000;
 
 async function startServer() {
     try {
-        console.log('MongoDB URI:', config.mongoURI);
         await mongoose.connect(config.mongoURI);
         console.log('Connected to MongoDB');
         
